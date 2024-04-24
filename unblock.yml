@@ -1,6 +1,6 @@
 ---
 - name: Unblock IP address and allow ICMP traffic using iptables
-  hosts: localhost
+  hosts: ControlNode
   become: yes
   tasks:
     - name: Ensure iptables is installed
