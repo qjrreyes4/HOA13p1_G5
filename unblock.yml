@@ -1,0 +1,25 @@
+---
+- name: Unblock IP address and allow ICMP traffic using iptables
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Ensure iptables is installed
+      apt:
+        name: iptables
+        state: present
+
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Upgrade all packages
+      apt:
+        upgrade: dist
+
+    - name: Unblock IP address using iptables
+      command: iptables -D INPUT -s 192.168.56.103 -j DROP
+      ignore_errors: yes
+
+    - name: Allow ICMP traffic using iptables
+      command: iptables -D INPUT -p icmp -j DROP
+      ignore_errors: yes
