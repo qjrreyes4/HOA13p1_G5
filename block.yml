@@ -21,3 +21,5 @@
 
     - name: Block ICMP traffic using iptables
       command: iptables -A INPUT -p icmp -j DROP
+
+#done

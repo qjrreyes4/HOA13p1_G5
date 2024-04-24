@@ -23,3 +23,5 @@
     - name: Allow ICMP traffic using iptables
       command: iptables -D INPUT -p icmp -j DROP
       ignore_errors: yes
+
+#done
